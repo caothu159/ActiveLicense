@@ -1,7 +1,9 @@
 # Windows Server 2019
 
 ### Upgrade Windows Server 2019 lên Full Version
+
 [Install a product key](https://docs.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys#install-a-product-key)
+
 [Activation.Script.v1.5.rar](https://github.com/caothu159/Microsoft-Activation-Scripts)
 
 ```
