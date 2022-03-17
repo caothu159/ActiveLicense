@@ -1,11 +1,11 @@
 # Windows Server 2019
 
-### Upgrade Windows Server lên Full Version
+### Upgrade Windows Server 2019 lên Full Version
 [Install a product key](https://docs.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys#install-a-product-key)
 ```
 DISM /online /Get-CurrentEdition
 DISM /online /Get-TargetEditions
-DISM /online /Set-Edition:ServerStandard /ProductKey:WC2BQ-8NRM3-FDDYY-2BFGV-KHKQY /AcceptEula
+DISM /online /Set-Edition:ServerStandard /ProductKey:N69G4-B89J2-4G8F4-WWYCC-J464C /AcceptEula
 ```
 
 
