@@ -1,5 +1,12 @@
 # Windows Server 2019
 
+### Upgrade Windows Server lên Full Version
+[Install a product key](https://docs.microsoft.com/en-us/windows-server/get-started/kms-client-activation-keys#install-a-product-key)
+```
+DISM /online /Set-Edition:ServerStandard /ProductKey:WC2BQ-8NRM3-FDDYY-2BFGV-KHKQY /AcceptEula
+```
+
+
 ### Windows Server 2019 Datacenter:
 
 ```
@@ -18,7 +25,7 @@ slmgr /ato
 ```
  
 
-## các phiên bản khác window server 2019 khác:
+### các phiên bản khác window server 2019 khác:
 
 ```
 slmgr /skms kms.digiboy.ir
