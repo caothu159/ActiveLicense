@@ -17,7 +17,7 @@
 					<string>1.0.0.2</string>
 				</array>
 				<key>ServerURL</key>
-				<string>https://dns.diepxuan.com/dns-query</string>
+				<string>https://dns.diepxuan.io.vn/dns-query</string>
 			</dict>
 			<key>PayloadDescription</key>
 			<string>Configures device to use Adguard Encrypted DNS over HTTPS</string>
