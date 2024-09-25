@@ -1,0 +1,6 @@
+{
+    "powershell.powerShellAdditionalExePaths": {
+        "MacOS Brew PowerShell": "/opt/homebrew/bin/pwsh"
+    },
+    "powershell.powerShellDefaultVersion": "MacOS Brew PowerShell"
+}
