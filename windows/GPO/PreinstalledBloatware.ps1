@@ -1,63 +1,64 @@
 # Remove Windows Bloatware
 Get-AppxProvisionedPackage -Online |
-  Where-Object -Property 'DisplayName' -In -Value @(
-  'Microsoft.Microsoft3DViewer';
-  'Microsoft.BingSearch';
-  # 'Microsoft.WindowsCalculator';
-  'Microsoft.WindowsCamera';
-  'Clipchamp.Clipchamp';
-  'Microsoft.WindowsAlarms';
-  'Microsoft.549981C3F5F10';
-  'Microsoft.Windows.DevHome';
-  'MicrosoftCorporationII.MicrosoftFamily';
-  'Microsoft.WindowsFeedbackHub';
-  'Microsoft.GetHelp';
-  'microsoft.windowscommunicationsapps';
-  'Microsoft.WindowsMaps';
-  'Microsoft.ZuneVideo';
-  'Microsoft.BingNews';
-  # 'Microsoft.WindowsNotepad';
-  'Microsoft.MicrosoftOfficeHub';
-  'Microsoft.Office.OneNote';
-  'Microsoft.OutlookForWindows';
-  'Microsoft.Paint';
-  # 'Microsoft.MSPaint';
-  'Microsoft.People';
-  # 'Microsoft.Windows.Photos';
-  'Microsoft.PowerAutomateDesktop';
-  'MicrosoftCorporationII.QuickAssist';
-  'Microsoft.SkypeApp';
-  'Microsoft.ScreenSketch';
-  'Microsoft.MicrosoftSolitaireCollection';
-  'Microsoft.MicrosoftStickyNotes';
-  'MSTeams';
-  'Microsoft.Getstarted';
-  'Microsoft.Todos';
-  'Microsoft.WindowsSoundRecorder';
-  'Microsoft.BingWeather';
-  'Microsoft.ZuneMusic';
-  # 'Microsoft.WindowsTerminal';
-  'Microsoft.Xbox.TCUI';
-  'Microsoft.XboxApp';
-  'Microsoft.XboxGameOverlay';
-  'Microsoft.XboxGamingOverlay';
-  'Microsoft.XboxIdentityProvider';
-  'Microsoft.XboxSpeechToTextOverlay';
-  'Microsoft.GamingApp';
-  'Microsoft.YourPhone';
-  # 'Microsoft.MicrosoftEdge';
-  # 'Microsoft.MicrosoftEdge.Stable';
-  # 'Microsoft.MicrosoftEdge_8wekyb3d8bbwe';
-  # 'Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe';
-  # 'Microsoft.MicrosoftEdgeDevToolsClient_1000.19041.1023.0_neutral_neutral_8wekyb3d8bbwe';
-  # 'Microsoft.MicrosoftEdge_44.19041.1266.0_neutral__8wekyb3d8bbwe';
-  'Microsoft.OneDrive';
-  # 'Microsoft.MicrosoftEdgeDevToolsClient';
-  'Microsoft.549981C3F5F10';
-  'Microsoft.MixedReality.Portal';
-  'Microsoft.Windows.Ai.Copilot.Provider';
-  'Microsoft.WindowsMeetNow';
-  # 'Microsoft.WindowsStore';
+Where-Object -Property 'DisplayName' -In -Value @(
+    'Microsoft.Microsoft3DViewer';
+    'Microsoft.BingSearch';
+    # 'Microsoft.WindowsCalculator';
+    'Microsoft.WindowsCamera';
+    'Clipchamp.Clipchamp';
+    'Microsoft.WindowsAlarms';
+    'Microsoft.549981C3F5F10';
+    'Microsoft.Windows.DevHome';
+    'MicrosoftCorporationII.MicrosoftFamily';
+    'Microsoft.WindowsFeedbackHub';
+    'Microsoft.GetHelp';
+    'microsoft.windowscommunicationsapps';
+    'Microsoft.WindowsMaps';
+    'Microsoft.ZuneVideo';
+    'Microsoft.BingNews';
+    # 'Microsoft.WindowsNotepad';
+    'Microsoft.MicrosoftOfficeHub';
+    'Microsoft.Office.OneNote';
+    'Microsoft.OutlookForWindows';
+    'Microsoft.Paint';
+    # 'Microsoft.MSPaint';
+    'Microsoft.People';
+    # 'Microsoft.Windows.Photos';
+    'Microsoft.PowerAutomateDesktop';
+    'MicrosoftCorporationII.QuickAssist';
+    'Microsoft.SkypeApp';
+    'Microsoft.ScreenSketch';
+    'Microsoft.MicrosoftSolitaireCollection';
+    'Microsoft.MicrosoftStickyNotes';
+    'MSTeams';
+    'MicrosoftTeams';
+    'Microsoft.Getstarted';
+    'Microsoft.Todos';
+    'Microsoft.WindowsSoundRecorder';
+    'Microsoft.BingWeather';
+    'Microsoft.ZuneMusic';
+    # 'Microsoft.WindowsTerminal';
+    'Microsoft.Xbox.TCUI';
+    'Microsoft.XboxApp';
+    'Microsoft.XboxGameOverlay';
+    'Microsoft.XboxGamingOverlay';
+    'Microsoft.XboxIdentityProvider';
+    'Microsoft.XboxSpeechToTextOverlay';
+    'Microsoft.GamingApp';
+    'Microsoft.YourPhone';
+    # 'Microsoft.MicrosoftEdge';
+    # 'Microsoft.MicrosoftEdge.Stable';
+    # 'Microsoft.MicrosoftEdge_8wekyb3d8bbwe';
+    # 'Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe';
+    # 'Microsoft.MicrosoftEdgeDevToolsClient_1000.19041.1023.0_neutral_neutral_8wekyb3d8bbwe';
+    # 'Microsoft.MicrosoftEdge_44.19041.1266.0_neutral__8wekyb3d8bbwe';
+    'Microsoft.OneDrive';
+    # 'Microsoft.MicrosoftEdgeDevToolsClient';
+    'Microsoft.549981C3F5F10';
+    'Microsoft.MixedReality.Portal';
+    'Microsoft.Windows.Ai.Copilot.Provider';
+    'Microsoft.WindowsMeetNow';
+    # 'Microsoft.WindowsStore';
 ) | Remove-AppxProvisionedPackage -AllUsers -Online
 
 # Removes Microsoft Teams
@@ -80,7 +81,7 @@ if ([System.IO.Directory]::Exists($TeamsPath)) {
 }
 
 # Uninstall from Uninstall registry key UninstallString
-$us = (Get-ChildItem -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall, HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall | Get-ItemProperty | Where-Object { $_.DisplayName -like '*Teams*'}).UninstallString
+$us = (Get-ChildItem -Path HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall, HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall | Get-ItemProperty | Where-Object { $_.DisplayName -like '*Teams*' }).UninstallString
 if ($us.Length -gt 0) {
     $us = ($us.Replace('/I', '/uninstall ') + ' /quiet').Replace('  ', ' ')
     $FilePath = ($us.Substring(0, $us.IndexOf('.exe') + 4).Trim())
