@@ -19,6 +19,9 @@ reg.exe add "HKLM\SOFTWARE\Microsoft\PolicyManager\default\NewsAndInterests\Allo
 reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds" /v ShellFeedsTaskbarViewMode /t REG_DWORD /d 2 /f
 reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Feeds" /v EnShellFeedsTaskbarViewMode /t REG_DWORD /d 34963110 /f
 
+:: Diasble Widget
+reg.exe add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v TaskbarDa /t REG_DWORD /d 0 /f
+
 :: Disables Windows Consumer Features Like App Promotions etc.
 reg.exe add "HKLM\Software\Policies\Microsoft\Windows\CloudContent" /v "DisableWindowsConsumerFeatures" /t REG_DWORD /d 0 /f
 

@@ -1,6 +1,5 @@
 # Remove Windows Bloatware
-Get-AppxProvisionedPackage -Online |
-Where-Object -Property 'DisplayName' -In -Value @(
+$bloatwareLst = @(
     'Microsoft.Microsoft3DViewer';
     'Microsoft.BingSearch';
     # 'Microsoft.WindowsCalculator';
@@ -59,7 +58,13 @@ Where-Object -Property 'DisplayName' -In -Value @(
     'Microsoft.Windows.Ai.Copilot.Provider';
     'Microsoft.WindowsMeetNow';
     # 'Microsoft.WindowsStore';
-) | Remove-AppxProvisionedPackage -AllUsers -Online
+    'WebExperience';
+)
+Get-AppxProvisionedPackage -Online |
+Where-Object -Property 'DisplayName' -In -Value $bloatwareLst | Remove-AppxProvisionedPackage -AllUsers -Online
+
+Get-AppxPackage -AllUsers | 
+Where-Object -Property 'Name' -In -Value $bloatwareLst | Remove-AppxPackage -AllUsers -ErrorAction SilentlyContinue
 
 # Removes Microsoft Teams
 $TeamsPath = [System.IO.Path]::Combine($env:LOCALAPPDATA, 'Microsoft', 'Teams')
