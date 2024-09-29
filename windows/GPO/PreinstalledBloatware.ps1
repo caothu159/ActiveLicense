@@ -53,14 +53,14 @@ $bloatwareLst = @(
     # 'Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe';
     # 'Microsoft.MicrosoftEdgeDevToolsClient_1000.19041.1023.0_neutral_neutral_8wekyb3d8bbwe';
     # 'Microsoft.MicrosoftEdge_44.19041.1266.0_neutral__8wekyb3d8bbwe';
-    'Microsoft.OneDrive';
+    # 'Microsoft.OneDrive';
     # 'Microsoft.MicrosoftEdgeDevToolsClient';
     'Microsoft.549981C3F5F10';
     'Microsoft.MixedReality.Portal';
     'Microsoft.Windows.Ai.Copilot.Provider';
     'Microsoft.WindowsMeetNow';
     # 'Microsoft.WindowsStore';
-    'WebExperience';
+    'MicrosoftWindows.Client.WebExperience';
 )
 Get-AppxProvisionedPackage -Online |
 Where-Object -Property 'DisplayName' -In -Value $bloatwareLst | Remove-AppxProvisionedPackage -AllUsers -Online
