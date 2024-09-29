@@ -1,3 +1,5 @@
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
+
 # Remove Windows Bloatware
 $bloatwareLst = @(
     'Microsoft.Microsoft3DViewer';
